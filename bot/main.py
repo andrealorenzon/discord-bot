@@ -35,13 +35,13 @@ async def on_message(message):
         await message.channel.send(response)
     
     for word in [
-        "italy",
-        'ritaly',
-        'ritalin',
-        'palo e palle',
-        'visura',
-        'pennetta',
-        'talpone',
+        "ritaly", 
+        "italy", 
+        "ritalì", 
+        "ritali", 
+        "ritalini", 
+        "ritalino", 
+        "ritalin"
         ]:
         if word in message.content:
             await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
@@ -52,8 +52,10 @@ async def on_message(message):
 
     if any(b in message.content for b in benvenuti):
         composed = random.sample(bsl, 10)
+        commas = ', '.join(composed[0:-1])
+        complete = " e ".join(commas, composed[-1])
         await message.channel.send(f"Benvenutå su litigi, il server discord di \
-riferimento per /{', '.join(composed)}")
+riferimento per /{complete}")
 
 if __name__ == "__main__":
     bot.run(TOKEN)
