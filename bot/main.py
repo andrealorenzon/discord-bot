@@ -31,6 +31,9 @@ async def on_message(message):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
 
+    if "italy " in message.content:
+        await message.channel.send("Ok ma cheppalle parlare di Italy.")
+
 
 if __name__ == "__main__":
     bot.run(TOKEN)
