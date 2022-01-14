@@ -14,7 +14,7 @@ async def ping(ctx):
 
 @bot.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author == bot.user:
         return
 
     brooklyn_99_quotes = [
