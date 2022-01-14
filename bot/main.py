@@ -5,13 +5,16 @@ import random
 bot = commands.Bot(command_prefix="!")
 TOKEN = os.getenv("DISCORD_TOKEN")
 
+
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user.name}({bot.user.id})")
 
+
 @bot.command()
 async def ping(ctx):
     await ctx.send("pong")
+
 
 @bot.event
 async def on_message(message):
@@ -31,7 +34,7 @@ async def on_message(message):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
 
-    if "italy " in message.content:
+    if "italy" in message.content or 'ritaly' in message.content:
         await message.channel.send("Ok ma cheppalle parlare di Italy.")
 
 
