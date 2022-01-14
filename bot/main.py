@@ -52,8 +52,7 @@ async def on_message(message):
 
     if any(b in message.content for b in benvenuti):
         composed = random.sample(bsl, 10)
-        commas = ', '.join(composed[0:-1])
-        complete = " e ".join(commas, composed[-1])
+        complete = ', '.join(composed)
         await message.channel.send(f"Benvenutå su litigi, il server discord di \
 riferimento per /{complete}")
 
