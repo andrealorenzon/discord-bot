@@ -54,7 +54,7 @@ async def on_message(message):
         composed = random.sample(bsl, 10)
         complete = ', '.join(composed)
         await message.channel.send(f"Benvenutå su litigi, il server discord di \
-riferimento per /{complete}")
+riferimento {complete}")
 
 if __name__ == "__main__":
     bot.run(TOKEN)
