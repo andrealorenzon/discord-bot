@@ -48,7 +48,7 @@ async def on_message(message):
 
     benvenuti = [f"benvenut{x} su litigi" for x in ['o','a','i','e','ə']]
     with open('bsl.txt') as f:
-        bsl = f.readlines()
+        bsl = [row.strip() for row in f.readlines()]
 
     if any(b in message.content for b in benvenuti):
         composed = random.sample(bsl, 10)
