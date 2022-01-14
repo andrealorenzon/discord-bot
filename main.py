@@ -2,7 +2,8 @@ import discord
 import os
 
 client = discord.Client()
-
+token = os.getenv('TOKEN')
+print(f"token = {token}")
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -15,4 +16,4 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-client.run(os.getenv('TOKEN'))
+client.run(token)
