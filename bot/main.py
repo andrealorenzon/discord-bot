@@ -53,17 +53,13 @@ async def on_message(message):
         "benvenute su litigi", 
         "Benvenutə su litigi",
         ]
+    with open('bsl.txt') as f:
+        bsl = f.readlines()
+
     if any(b in message.content for b in benvenuti):
-        await message.channel.send("Benvenutå su litigi, il sub che ha risolto l'annoso \
-problema dei pronomi e che infatti spara più stronzate procapite al mondo. Ma \
-non tanto per dire, è certificato proprio, campioni di reddit, sucate tutti, \
-che qui siamo competitivi mica diciamo gni gni gni bravi tutti, fiera dell'amicizia \
-tra sub... l'unico sub che teniamo vicino è quello dove ci stanno le XX per \
-ovvi motivi (e quello dove fappano ma zero virili strette di mano). Che poi, la figa \
-piace a molti, il cazzo piace a tutti, basta vedere le statistiche. Benvenutå a \
-casa grafomani, dispersi del web primi anni 00, onlyfansers e in generale chiunque \
-abbia un buco del culo che lo obblighi a scrivere quand'è al cesso. *Please note: \
-this public service is provided for free so don't cagacazz*")
+        composed = random.sample(bsl, 10)
+        await message.channel.send(f"Benvenutå su litigi, il server discord di \
+riferimento per /{', '.join(composed)}")
 
 if __name__ == "__main__":
     bot.run(TOKEN)
