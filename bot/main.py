@@ -33,9 +33,18 @@ async def on_message(message):
     if message.content == '99!':
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
-
-    if "italy" in message.content or 'ritaly' in message.content:
-        await message.channel.send("Ok ma cheppalle parlare di Italy.")
+    
+    for word in [
+        "italy",
+        'ritaly',
+        'ritalin',
+        'palo e palle',
+        'visura',
+        'pennetta',
+        'talpone',
+        ]:
+        if word in message.content:
+            await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
 
 
 if __name__ == "__main__":
