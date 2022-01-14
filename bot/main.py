@@ -46,13 +46,7 @@ async def on_message(message):
         if word in message.content:
             await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
 
-    benvenuti = [
-        "benvenuto su litigi", 
-        "benvenuta su litigi", 
-        "benvenuti su litigi",  
-        "benvenute su litigi", 
-        "Benvenutə su litigi",
-        ]
+    benvenuti = [f"benvenut{x} su litigi" for x in ['o','a','i','e','ə']]
     with open('bsl.txt') as f:
         bsl = f.readlines()
 
