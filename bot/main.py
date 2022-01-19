@@ -21,7 +21,9 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    brooklyn_99_quotes = [
+    
+    elif message.content == '99!':
+        brooklyn_99_quotes = [
         'I\'m the human form of the 💯 emoji.',
         'Bingpot!',
         (
@@ -29,12 +31,11 @@ async def on_message(message):
             'no doubt no doubt no doubt no doubt.'
         ),
     ]
-
-    if message.content == '99!':
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
     
-    for word in [
+    elif 'ital' in message.content:
+        for word in [
         "ritaly", 
         "italy", 
         "ritalì", 
@@ -43,19 +44,25 @@ async def on_message(message):
         "ritalino", 
         "ritalin"
         ]:
-        if word in message.content:
-            await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
+            if word in message.content:
+                await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
+                return
 
-    benvenuti = [f"benvenut{x} su litigi" for x in ['o','a','i','e','ə']]
-    with open('bsl.txt') as f:
-        bsl = [row.strip() for row in f.readlines()]
+    elif 'benvenut' in message.content.lower():
+        benvenuti = [f"benvenut{x} su litigi" for x in ['o','a','i','e','ə']]
+        with open('bsl.txt') as f:
+            bsl = [row.strip() for row in f.readlines()]
 
-    if any(b in message.content for b in benvenuti):
-        composed = random.sample(bsl, 10)
-        complete = ', '.join(composed)
-        complete.replace("?,","?")
-        await message.channel.send(f"Benvenutå su litigi, il server discord di \
-riferimento {complete}")
+        if any(b in message.content for b in benvenuti):
+            composed = random.sample(bsl, 10)
+            complete = ', '.join(composed)
+            complete.replace("?,","?")
+            await message.channel.send(f"Benvenutå su litigi, il server discord di \
+    riferimento {complete}")
+            return
+    
+    elif 'milano' in message.content.lower():
+        await message.channel.send('''Con 367 miliardi di dollari, l'area metropolitana di Milano è la prima area in Italia e l'undicesima al mondo per prodotto interno lordo e altre supercazzole assortite su multinazionali, informatica, sistema bancario, biotecnologie, invenzioni, borsa, borsette. Questo per dire che ti stai mettendo contro un nemico potente e che veste sicuramente MaisonMargiela. Cancella quella cartellina, non costringermi a chiamare Fec(vincitore mongolino 2021) per una visura ipocatastale al tuo ano.''')
 
 if __name__ == "__main__":
     bot.run(TOKEN)
