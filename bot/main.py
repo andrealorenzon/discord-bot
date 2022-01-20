@@ -25,7 +25,6 @@ async def on_message(message):
 
     #log
     user_key = message.author.name.lower()
-    print(f"user_key: ", user_key)
     seen[user_key] = datetime.datetime.now()
 
     if message.content.startswith("!seen"):
