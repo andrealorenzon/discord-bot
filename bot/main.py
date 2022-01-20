@@ -23,13 +23,13 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    seen[message.author] = datetime.datetime.now()
+    seen[message.author.lower()] = datetime.datetime.now()
 
     if messagge.content.startswith("!seen"):
         lookup_name = message.content[5:]
         for name in seen.keys():
-            if lookup_name in name:
-                lst_time = seen[lookup_name].strftime("%d/%m/%Y, %H:%M")
+            if lookup_name.lower() in name:
+                lst_time = seen[lookup_name.lower()].strftime("%d/%m/%Y, %H:%M")
                 response = f"Ho visto {lookup_name} per l'ultima volta: {lst_time} "
                 await message.channel.send(response)
             else:
