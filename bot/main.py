@@ -25,7 +25,7 @@ async def on_message(message):
 
     seen[message.author.name.lower()] = datetime.datetime.now()
 
-    if messagge.content.startswith("!seen"):
+    if message.content.startswith("!seen"):
         lookup_name = message.content[5:].lower()
         for name in seen.keys():
             if lookup_name in name:
