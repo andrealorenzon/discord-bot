@@ -23,17 +23,21 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    seen[message.author.name.lower()] = datetime.datetime.now()
+    #log
+    user_key = message.author.name.lower()
+    print(f"user_key: ", user_key)
+    seen[user_key] = datetime.datetime.now()
 
     if message.content.startswith("!seen"):
-        lookup_name = message.content[5:].lower()
-        for name in seen.keys():
-            if lookup_name in name:
-                lst_time = seen[lookup_name].strftime("%d/%m/%Y, %H:%M")
-                response = f"Ho visto {message.content[5:]} per l'ultima volta: {lst_time} "
-                await message.channel.send(response)
-            else:
-                await message.channel.send("Mi spiace, non lo vedo da un po'.")
+        lookup_name = message.content[6:].lower()
+        lst_time = seen.get(lookup_name, None)
+        if lst_time:
+            timestring = seen[lookup_name].strftime("%d/%m/%Y, %H:%M")
+            response = f"Ho visto {message.content[5:]} per l'ultima volta: {timestring} "
+        else:
+            response = "Mi spiace, non lo vedo da un po'."
+        await message.channel.send(response)
+                
 
     elif message.content == '99!':
         brooklyn_99_quotes = [
