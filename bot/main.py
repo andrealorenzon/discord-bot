@@ -23,7 +23,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    seen[author] = datetime.datetime.now()
+    seen[message.author] = datetime.datetime.now()
 
     if messagge.content.startswith("!seen"):
         lookup_name = message.content[5:]
