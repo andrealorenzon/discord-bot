@@ -50,7 +50,13 @@ async def on_message(message):
         response = random.choice(brooklyn_99_quotes)
         await message.channel.send(response)
 
-    elif 'ital' in message.content:
+    elif "bottana" in message.content.lower():
+        await message.channel.send("Oh sì, fammi tua. [50€]")
+
+    elif "negro" in message.content.lower() or "negra" in message.content.lower():
+        await message.channel.send("Che roba da sfigati usare negro come insulto.")
+
+    elif 'ital' in message.content.lower():
         for word in [
             "ritaly",
             "italy",
@@ -58,7 +64,9 @@ async def on_message(message):
             "ritali",
             "ritalini",
             "ritalino",
-            "ritalin"
+            "ritalin",
+            "ritali",
+            "itali"
         ]:
             if word in message.content:
                 await message.channel.send("OK, ma cheppalle parlare di Italy. :(")
