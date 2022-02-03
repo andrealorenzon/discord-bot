@@ -56,7 +56,7 @@ async def on_message(message):
     elif "negro" in message.content.lower() or "negra" in message.content.lower():
         await message.channel.send("Che roba da sfigati usare negro come insulto.")
 
-    elif 'ital' in message.content.lower():
+    elif 'ital' in message.content.lower().strip():
         for word in [
             "ritaly",
             "italy",
